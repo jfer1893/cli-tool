@@ -10,7 +10,7 @@ public class RestoreCommand {
         // Validate restore file
         File restoreFile = new File(file);
         if (!restoreFile.exists() || !restoreFile.isFile()) {
-            System.out.println("Invalid restore file: File does not exist or is not a regular file.");
+            System.out.println("Invalid restore file: File does not exist invalid extension.");
             return;
         }
 
