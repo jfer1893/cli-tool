@@ -1,44 +1,56 @@
 package clitool;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Objects;
+import java.util.Scanner;
+
 public class CliTool {
 
-    public static void main(String[] args) {
-        if (args.length == 0) {
-            System.out.println("Please provide a command.");
-            return;
-        }
+    public static void main(String[] args) throws IOException {
+     String command = "";
+        do {
+            System.out.println("Please provide command " );
 
-        String command = args[0];
+            Scanner in = new Scanner(System.in);
+            String s = in.nextLine();
+            String[] arguments = s.split(" ");
+            command = arguments[0];
         switch (command) {
             case "fetch":
-                FetchCommand.fetchAndSave(args);
+                FetchCommand.fetchAndSave(arguments);
                 break;
             case "live":
-                LiveCommand.live(args);
+                LiveCommand.live(arguments);
                 break;
             case "history":
-                if (args.length > 1) {
-                    HistoryCommand.history(Arrays.copyOfRange(args, 1, args.length));
+                if (arguments.length > 1) {
+                    HistoryCommand.history
+                            (Arrays.copyOfRange(arguments, 1, arguments.length));
                 } else {
                     HistoryCommand.history();
                 }
                 break;
             case "backup":
-                if (args.length > 1) {
-                    BackupCommand.backup(args[1]);
+                if (arguments.length > 1) {
+                    BackupCommand.backup(arguments[1]);
                 } else {
                     System.out.println("Please provide a file path for backup.");
                 }
                 break;
             case "restore":
-                if (args.length > 1) {
-                    RestoreCommand.restore(args[1]);
+                if (arguments.length > 1) {
+                    RestoreCommand.restore(arguments[1]);
                 } else {
                     System.out.println("Please provide a file path for restore.");
                 }
                 break;
+            case "exit":
+                break;
             default:
                 System.out.println("Unknown command. Available commands: fetch, live, history, backup, restore");
         }
+        } while (!Objects.equals(command, "exit"));
     }
 }

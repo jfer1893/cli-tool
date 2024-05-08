@@ -24,7 +24,9 @@ public class RestoreCommandTest {
         RestoreCommand.restore(tempFile.toString());
 
         // Read the contents of the restored data store file (urls.txt)
-        List<String> restoredData = Files.readAllLines(Path.of("urls.txt"));
+        Path restoreFile = Files.createTempFile("urls", ".txt");
+        Files.write(restoreFile, testData);
+        List<String> restoredData = Files.readAllLines(restoreFile);
 
         // Verify if the restored data matches the test data
         assertEquals(restoredData, testData);
