@@ -27,5 +27,8 @@ public class HistoryCommand {
         } catch (IOException e) {
             System.err.println("Failed to read history from 'urls.txt': " + e.getMessage());
         }
+        catch (Exception e) {
+            System.err.println("Failed to read history  'urls.txt': " + e.getMessage());
+        }
     }
 }

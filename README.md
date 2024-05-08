@@ -16,11 +16,17 @@ The Cli-Tool will start
 ## USAGE
 Cli-Tool supports the following commands:
 
-fetch: Fetch URLs from configured websites. 
-live: Continuously query URLs based on an interval.
-history: Display data gathered in the datastore.
-backup: Create a backup of data in the datastore.
-restore: Restore data from a backup file into the datastore.
+- fetch: Fetch URLs from configured websites. 
+
+- live: Continuously query URLs based on an interval.
+
+- history: Display data gathered in the datastore.
+
+- backup: Create a backup of data in the datastore.
+
+- restore: Restore data from a backup file into the datastore.
+
+The data will be stored in the volume configured in the docker-compose file provided
 
 ### FETCH
 fetch: this command will fetch URLS from a configured websites  and save it to a file named "urls.txt"
@@ -103,7 +109,8 @@ backup: Create a backup of data in the datastore.
 		It will show a message "Please provide a file path for backup."
 
 ### RESTORE
-restore: Restore data from a backup file into the datastore.
+
+ Restore data from a backup file into the datastore.
 	
 	Options:
 		This command has 1 mandatory argument
