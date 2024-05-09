@@ -3,15 +3,19 @@
 CLI Tool is a command-line interface for fetching URLs from configured websites and checking their availability.
 
 # Installation instructions
-To install Cli Tool, Unzip the project sent by email and type the following docker commands in shell
+To install Cli Tool, Unzip the project sent by email. 
+Inside the application folder open a Powershell window and type the following docker commands:
 
 docker-compose up -d --build
+ - This Command will create an image of our cli-tool and mount a volume to save and manage storage for this container.
 
 After the build you should execute the following command:
 
 docker run -it clitool-image
 
-The Cli-Tool will start
+The Cli-Tool will start.
+A message with the following text will appear "Please provide command".
+
 
 ## USAGE
 Cli-Tool supports the following commands:
@@ -26,15 +30,17 @@ Cli-Tool supports the following commands:
 
 - restore: Restore data from a backup file into the datastore.
 
-The data will be stored in the volume configured in the docker-compose file provided
+- exit: Application will be terminated.
+
+The data will be stored in the volume configured in the docker-compose file provided.
 
 ### FETCH
 fetch: this command will fetch URLS from a configured websites  and save it to a file named "urls.txt"
 	
 	Options:
-		This Command has 2 optional arguments
-	output: Shows the result if the url is available or not
-	siteList: A list of urls separated by a space to fetch the availability of the URL
+		This Command has 2 optional arguments.
+	output: Shows the result if the url is available or not.
+	siteList: A list of urls separated by a space to fetch the availability of the URL.
 	
 	- Arguments 
 	 - argument1: output
@@ -43,8 +49,7 @@ fetch: this command will fetch URLS from a configured websites  and save it to a
 		Examples:
 	"fetch" -> will get the urls configured in the app and save to a file named "urls.txt"
 	"fetch output" -> will get the urls configured in the app and save to a file named "urls.txt" and show it in the console
-	"fetch output https:\\www.example.com" -> will get the urls configured in the app and add to the list the URL provided 
-	it will be stored to a file named "urls.txt" and show it in the console
+	"fetch output https:\\www.example.com" -> will get the urls configured in the app and add to the list the URL provided. The result of the site is available or not will be saved in the file "urls.txt" and shown in the console.
 	
 	Example of Output:
 	https://www.google.pt/ - true
@@ -70,11 +75,11 @@ Continuously query URLs based on an interval - for a demo propose it's configure
 		Continuously query URLs based on an interval - for a demo propose it's configured for 5 requests in an interval of 5 seconds each! 
 		it will continuously get the urls configured in the app and save to a file named "urls.txt"	
 	"live output"
-		Continuously query URLs based on an interval - for a demo propose it's configured for 5 requests in an interval of 5 seconds each! 
+		Continuously query URLs based in the intervald defined
 		it will continuously get the urls configured in the app and save to a file named "urls.txt" and show it in the console
 	"live output https:\\www.example.com" 
 		will get the urls configured in the app and add to the list the URL provided 
-		it will be stored to a file named "urls.txt" and show it in the console
+		it will be stored to a file named "urls.txt" and show it in the console.
 
 ### HISTORY
 Display data gathered in the datastore.
@@ -130,4 +135,4 @@ backup: Create a backup of data in the datastore.
 ### EXIT
 The application will exit!
 
-Thank you
+Thank you.
